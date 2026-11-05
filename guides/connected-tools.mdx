@@ -1,0 +1,26 @@
+---
+title: Connect Bindo to other MCP servers
+description: Give the assistant reviewed lookup tools from your existing systems.
+---
+This is the other direction of MCP: **Bindo is the client**, and your booking or repair system provides tools.
+
+<Steps>
+<Step title="Prepare a narrow credential">
+Choose a trusted Streamable HTTP MCP server. Use a provider credential that can only read the intended business records. Your administrator stores its bearer token in Bindo's private configuration, bound to the exact endpoint URL, and gives you its reference. Anonymous public servers do not need a credential reference.
+</Step>
+<Step title="Connect and discover">
+In **Assistant → Connected tools**, add a connection name, public HTTPS endpoint and optional credential reference. Select **Discover tools**. Discovery leaves every tool disabled.
+</Step>
+<Step title="Review each lookup">
+Read the tool description and argument schema. Verify its actual behaviour and data access with the provider. A server's read-only hint is only a claim. Approve only tools that cannot change records or send messages.
+</Step>
+<Step title="Use it in a draft">
+Live Bedrock drafting may select approved lookups relevant to the enquiry. The draft records tool arguments, returned data and lookup time for staff to check. Verify the data belongs to the right customer and is still current.
+</Step>
+</Steps>
+
+The pilot allows five connections, 20 discovered tools per server, 12 enabled tools per draft and three lookup calls per generation. Results and execution time are bounded. Changed tool definitions require rediscovery and approval again. Rediscovery resets all permissions for that connection.
+
+Remote servers receive the arguments passed to their tools. Only connect providers you are authorised to share customer details with. Bindo blocks private network targets and redirects, and does not forward its workspace token to remote servers.
+
+OAuth, local stdio servers, automatic provider selection and state-changing tools are not available yet. A server with broad administrative tools is not safe merely because it supports MCP.

@@ -1,0 +1,18 @@
+---
+title: Connect email
+description: Receive and reply through Moonemail using your domain.
+---
+Open **Channels** and enter your business domain, a dedicated subdomain such as `support.example.com.au`, and an address such as `hello@support.example.com.au`.
+
+Bindo shows records supplied by Moonemail. Add them at your DNS provider, then check verification. Activate only when both sending and receiving are verified. Keep your existing business domain's MX records intact: the pilot requires a dedicated subdomain.
+
+An administrator must provision Moonemail receive, send, webhook-signing and domain-management credentials. They are never returned by the operator API or MCP tools.
+
+### Delivery states
+
+- **Queued**: approved and waiting for submission.
+- **Submitting**: the provider request is underway.
+- **Accepted / sent / delivered**: provider-reported progress, not proof the customer read it.
+- **Delivery unknown**: a request may have reached the provider. Staff must reconcile it before trying again; Bindo does not automatically resend an uncertain delivery.
+
+Changing the knowledge, reply rules or enquiry after approval can invalidate a queued generated reply. Review a new draft before resubmitting.

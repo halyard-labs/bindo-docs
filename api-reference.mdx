@@ -1,0 +1,41 @@
+---
+title: API essentials
+description: The HTTP interface behind the dashboard and MCP tools.
+---
+All `/v1` requests use a workspace bearer token. JSON writes require `Content-Type: application/json`. IDs and revision numbers must come from current responses.
+
+```bash
+curl "$BINDO_API_URL/v1/enquiries?queue=unanswered&limit=25" \
+  -H "Authorization: Bearer $BINDO_TOKEN"
+```
+
+`queue` accepts `unanswered`, `attention` or `all`. Follow the returned `next` cursor using `after`; an empty filtered page can still have a next cursor. Ordering is by enquiry ID, not age.
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| GET | `/v1/me` | Workspace and token permissions |
+| GET | `/v1/enquiries` | Work queue and delivery/review blockers |
+| GET | `/v1/enquiries/{id}/context` | Selected inbound and bounded customer context |
+| GET | `/v1/customers/{id}/timeline` | Paginated customer messages |
+| GET / POST | `/v1/knowledge` | Read or create business knowledge |
+| PUT | `/v1/knowledge/{id}` | Revise an entry using its current revision |
+| GET / PUT | `/v1/assistant` | Read or configure the managed persona |
+| POST | `/v1/enquiries/{id}/generate` | Generate a source-backed reply draft |
+| GET / PUT | `/v1/integrations` | List or configure remote MCP connections |
+| POST | `/v1/integrations/{id}/discover` | Discover tools and reset permissions |
+| POST | `/v1/integrations/{id}/review` | Human-only permission grant or removal |
+| GET | `/v1/billing` | Plan readiness and subscription state |
+
+Generate a draft with `{"enquiry_revision": 3, "intent": "business_information"}`. A generated draft contains `sources`, `review_flags` and, when lookups ran, `tool_evidence`. No email is sent by generation.
+
+Configure a connection with `{"id":"workshop","name":"Workshop","endpoint":"https://provider.example/mcp","credential_ref":"workshop-readonly","enabled":true,"revision":0}`. Credentials are provisioned separately; this request never contains the bearer secret.
+
+### Errors
+
+- `400`: invalid input.
+- `403`: missing permission or a human-only action.
+- `404`: no matching record in this workspace.
+- `409`: changed revision or review/delivery blocker. Read the current state before retrying.
+- `503`: drafting, email setup or billing is not ready.
+
+This page covers the common pilot surface. Use MCP `tools/list` for the full, permission-filtered tool schemas. Never assume an operation is authorised merely because it is documented.

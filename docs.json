@@ -1,0 +1,12 @@
+{
+ "$schema":"https://mintlify.com/docs.json",
+ "theme":"mint",
+ "name":"Bindo",
+ "description":"Email support with a shared customer history and an assistant you control.",
+ "colors":{"primary":"#6750B5","light":"#A795D4","dark":"#6750B5"},
+ "logo":{"light":"/logo.svg","dark":"/logo.svg","href":"https://bindo.ai"},
+ "favicon":"/favicon.svg",
+ "navigation":{"groups":[{"group":"Start here","pages":["index","quickstart","authentication"]},{"group":"Run your inbox","pages":["guides/email","guides/knowledge","guides/assistant","guides/customers"]},{"group":"Work with agents","pages":["guides/mcp","guides/connected-tools","api-reference"]},{"group":"Account","pages":["guides/billing","guides/support"]}]},
+ "api":{"playground":{"display":"simple","proxy":false},"examples":{"languages":["bash","javascript","python"]}},
+ "contextual":{"options":["copy","view"]}
+}

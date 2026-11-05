@@ -1,0 +1,13 @@
+---
+title: Billing
+description: Pilot access and the hosted payment flow.
+---
+Paid plans are not enabled by default. During the managed pilot, the Bindo team agrees access and commercial terms with each business before charging.
+
+When billing is enabled, **Settings → Billing** shows the configured monthly AUD amount and terms. Checkout and the billing portal are hosted by Stripe. Bindo does not collect card details in the inbox.
+
+Subscription status comes from verified Stripe events, not the browser's return from Checkout. An open checkout is reused; an existing subscription blocks another checkout. Unknown or old attempts require staff reconciliation.
+
+Invoices, payment methods and cancellation are managed in Stripe's customer portal when configured. Disputes, refunds and fraud warnings flag the account for operator review. The pilot does not automatically suspend inbound support on a payment failure.
+
+Pricing, GST treatment and cancellation terms must be agreed before live billing is enabled. No public price is implied by this documentation.

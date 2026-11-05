@@ -1,0 +1,23 @@
+---
+title: Authentication
+description: Use a separate workspace credential for each person or agent.
+---
+The API and MCP endpoint accept `Authorization: Bearer <workspace-token>`. Tokens are provisioned by an administrator in the pilot; OAuth and self-serve token issuance are not available.
+
+Never put a token in a URL or a published document. Keep agent tokens in your client's secret store or environment. Revoke them by removing their hash from Bindo's private runtime configuration.
+
+| Permission | Purpose |
+| --- | --- |
+| `customers:read` | Customer history, enquiries, drafts and reply rules |
+| `drafts:write` | Create or generate reply drafts |
+| `knowledge:read`, `assistant:read` | Read approved knowledge and assistant behaviour |
+| `integrations:use` | Let generated drafts call staff-approved connected lookups |
+| `integrations:read` | Inspect connected servers and tool permissions |
+| `integrations:write` | Configure servers and discover tools; agents cannot approve tool permission grants |
+| `billing:read` | Read subscription state |
+
+Configuration also has separate scopes for knowledge, assistant, enquiry, channel and reply-rule changes. Use explicit scopes; a wildcard agent token does not grant management permissions.
+
+<Warning>
+Use dedicated `agent` credentials for external agents. Sending replies, granting tool permissions, Checkout and billing-portal access require a human operator. MCP calls cannot exercise these privileges even with an operator token.
+</Warning>

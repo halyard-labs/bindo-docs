@@ -1,0 +1,26 @@
+---
+title: Connect your agent to Bindo
+description: Read enquiries, maintain knowledge and prepare replies through MCP.
+---
+Bindo serves Streamable HTTP MCP at your workspace API origin followed by `/mcp`. Find the exact URL in **Settings → Agent access**. The intended hosted origin is `https://app.bindo.ai`; use the address supplied during onboarding.
+
+For a local development instance:
+
+```toml
+[mcp_servers.bindo]
+url = "http://127.0.0.1:8080/mcp"
+bearer_token_env_var = "BINDO_MCP_TOKEN"
+```
+
+Set `BINDO_MCP_TOKEN` privately in the client environment. Tools are filtered by token permissions. Read the `bindo://guide` resource when connecting.
+
+### A useful workflow
+
+1. Call `list_enquiries` with `queue: "unanswered"`. Follow `next` even after an empty filtered page.
+2. Call `get_enquiry_context` for the selected enquiry. Check blockers and the latest inbound.
+3. Inspect knowledge and assistant settings. Call `generate_reply_draft`, or prepare a manual draft with `create_reply_draft`.
+4. Return the saved draft ID and review reasons to staff. Do not claim the reply was sent.
+
+Configuration tools include `save_knowledge`, `configure_assistant`, `configure_reply_rule`, email setup, `configure_integration` and `discover_integration_tools` when explicitly delegated.
+
+There is no MCP tool for sending a reply, granting connected-tool permissions or purchasing a subscription. Those are human decisions.
