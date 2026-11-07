@@ -2,13 +2,21 @@
 title: Assistant behaviour
 description: Set its voice, responsibilities and when it should ask your team.
 ---
-In **Assistant**, choose a name and tone, then describe the remit, handoff conditions and signature. For a repair shop:
+Start in **Business** with your business details and customer requests. Each request describes a goal, information to collect and conditions for handing over to a person. Under **Business → Reply settings → Behaviour**, choose a name and tone, then describe the remit. Expand **Email signature** to edit the sign-off. Set handoff conditions under **Handoff** and manage connections under **Tools**. For a repair shop:
 
 > Answer questions about our published services and opening hours. Ask staff about specific repair estimates, safety concerns, refunds and any change to a booking.
 
-Reply rules control whether assistants may draft for an enquiry type. **Staff only** blocks assistant drafting. Taking over a customer enquiry also pauses the assistant.
+Reply rules control whether assistants may draft for an enquiry type. **Staff only** blocks assistant drafting. Choosing **Hand off to team** on an enquiry also pauses the assistant.
 
-Every reply in the pilot needs human approval. The model cannot grant itself permissions or execute a booking change. A confident-sounding answer is not permission to act.
+Manual drafts require human approval. A workspace can separately enable an evaluated automatic-reply scope for documented questions. Those replies must match an approved customer request, use current published knowledge, pass independent answer checks and stay within reply limits. Other requests are handed to the team. The model cannot grant itself permissions or execute a booking change. A confident-sounding answer is not permission to act.
+
+### Choose who takes over
+
+Under **Business → Reply settings → Handoff**, select a workspace member in **Assign handoffs to**, or leave it **Unassigned — team queue**. Customer requests can specify their own handoff member. Existing owners stay assigned.
+
+Use **Assigned to** in the inbox to change the owner of the selected enquiry. Other enquiries in the same customer history are unchanged. When drafting classifies a request as requiring staff, Bindo pauses that enquiry and assigns the configured member. Staff and scoped agents can also hand off directly. With automatic replies disabled, receipt alone does not start classification: request a draft or hand off manually. No handoff notification is sent yet.
+
+Members must have access to read customers and manage enquiries. An administrator manages workspace membership; self-serve invitations are not available yet. Agent credentials do not appear as people.
 
 ### Connected tools
 

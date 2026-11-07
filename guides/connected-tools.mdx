@@ -9,13 +9,13 @@ This is the other direction of MCP: **Bindo is the client**, and your booking or
 Choose a trusted Streamable HTTP MCP server. Use a provider credential that can only read the intended business records. Your administrator stores its bearer token in Bindo's private configuration, bound to the exact endpoint URL, and gives you its reference. Anonymous public servers do not need a credential reference.
 </Step>
 <Step title="Connect and discover">
-In **Assistant → Connected tools**, add a connection name, public HTTPS endpoint and optional credential reference. Select **Discover tools**. Discovery leaves every tool disabled.
+In **Business → Reply settings → Tools**, add a connection name, public HTTPS endpoint and optional credential reference. Select **Discover tools**. Discovery leaves every tool disabled.
 </Step>
 <Step title="Review each lookup">
 Read the tool description and argument schema. Verify its actual behaviour and data access with the provider. A server's read-only hint is only a claim. Approve only tools that cannot change records or send messages.
 </Step>
-<Step title="Use it in a draft">
-Live Bedrock drafting may select approved lookups relevant to the enquiry. The draft records tool arguments, returned data and lookup time for staff to check. Verify the data belongs to the right customer and is still current.
+<Step title="Check runtime support">
+The current hosted OpenAI runtime does not execute connected tools. Registering and approving a tool does not make its external information available to drafts. The optional Bedrock runtime supports reviewed lookups and records their arguments, returned data and lookup time. An administrator must confirm runtime support before relying on external lookups.
 </Step>
 </Steps>
 
