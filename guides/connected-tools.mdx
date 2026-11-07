@@ -15,7 +15,7 @@ In **Business → Reply settings → Tools**, add a connection name, public HTTP
 Read the tool description and argument schema. Verify its actual behaviour and data access with the provider. A server's read-only hint is only a claim. Approve only tools that cannot change records or send messages.
 </Step>
 <Step title="Check runtime support">
-The current hosted OpenAI runtime does not execute connected tools. Registering and approving a tool does not make its external information available to drafts. The optional Bedrock runtime supports reviewed lookups and records their arguments, returned data and lookup time. An administrator must confirm runtime support before relying on external lookups.
+The hosted OpenAI runtime can select up to three reviewed read-only lookups, executed by the backend. Drafts retain their arguments, results and lookup time for staff review. Account-specific results do not qualify for automatic sending. The optional Bedrock runtime also supports reviewed lookups.
 </Step>
 </Steps>
 
@@ -24,3 +24,7 @@ The pilot allows five connections, 20 discovered tools per server, 12 enabled to
 Remote servers receive the arguments passed to their tools. Only connect providers you are authorised to share customer details with. Bindo blocks private network targets and redirects, and does not forward its workspace token to remote servers.
 
 OAuth, local stdio servers, automatic provider selection and state-changing tools are not available yet. A server with broad administrative tools is not safe merely because it supports MCP.
+
+### Product account context
+
+For account-scoped support connections, staff verify and link the customer account under **Customer details → Connected accounts**. The backend supplies that account identity to the tool; customer messages cannot choose another account. No link means no account lookup. Cancellation previews change nothing and must be reviewed in the product by authorised staff.
