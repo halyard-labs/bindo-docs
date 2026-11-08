@@ -27,4 +27,8 @@ OAuth, local stdio servers, automatic provider selection and state-changing tool
 
 ### Product account context
 
-For account-scoped support connections, staff verify and link the customer account under **Customer details → Connected accounts**. The backend supplies that account identity to the tool; customer messages cannot choose another account. No link means no account lookup. Cancellation previews change nothing and must be reviewed in the product by authorised staff.
+First-party support connections can automatically match an authenticated sender to a verified product user with one current account membership. Bindo Support looks up Bindo accounts; Moonemail Support looks up Moonemail accounts. The backend supplies account identity; the model cannot search arbitrary customer addresses or choose another account.
+
+Each new email is authenticated independently. A previous match does not make a spoofed follow-up trusted. The enquiry displays its account-match status. Routine matched plan, quota and usage questions do not need another identity check; replies based on account lookups still need staff review.
+
+Ambiguous matches, inconclusive email authentication and sensitive requests require verification. General questions can continue without it. Staff verification is available under **Customer details → Connected accounts → Staff verification** and applies to the selected enquiry. Cancellation previews do not cancel anything; an authorised staff member must approve in the product.
