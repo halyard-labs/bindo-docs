@@ -2,7 +2,11 @@
 title: Authentication
 description: Use a separate workspace credential for each person or agent.
 ---
-The API and MCP endpoint accept `Authorization: Bearer <workspace-token>`. Tokens are provisioned by an administrator in the pilot; OAuth and self-serve token issuance are not available.
+Connect an agent to `https://app.bindo.ai/mcp` using OAuth in a client supporting dynamic client registration and PKCE. Sign in with your existing Google/email account, choose a workspace and approve the requested permissions. Disconnect agents under **Settings → Agent access**. Grants expire after 30 days and cannot exceed your current workspace permissions.
+
+OAuth access tokens are for the customer workspace MCP only: they cannot call the ordinary REST API or the privileged support-admin MCP. OAuth does not create new workspaces or grant paid access.
+
+Administrator-provisioned `Authorization: Bearer <workspace-token>` credentials remain supported by the API and MCP. These are a separate authentication path.
 
 Never put a token in a URL or a published document. Keep agent tokens in your client's secret store or environment. Revoke them by removing their hash from Bindo's private runtime configuration.
 
