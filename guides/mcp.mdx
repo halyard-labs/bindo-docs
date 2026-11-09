@@ -2,7 +2,22 @@
 title: Connect your agent to Bindo
 description: Read enquiries, maintain knowledge and prepare replies through MCP.
 ---
-Bindo serves Streamable HTTP MCP at your workspace API origin followed by `/mcp`. Find the exact URL in **Settings → Agent access**. The intended hosted origin is `https://app.bindo.ai`; use the address supplied during onboarding.
+Bindo serves Streamable HTTP MCP at your workspace API origin followed by `/mcp`. Find the exact URL in **Settings → Agent access**. The production endpoint is `https://app.bindo.ai/mcp`.
+
+### Connect with OAuth
+
+Add the endpoint in an MCP client supporting OAuth with dynamic client registration. Sign in with Google or email, choose the business workspace, then approve only the requested permissions you want to delegate. Read permissions are selected initially; changes require explicit selection. Manage and disconnect your connections in **Settings → Agent access**.
+
+For Codex:
+
+```sh
+codex mcp add bindo --url https://app.bindo.ai/mcp
+codex mcp login bindo --scopes customers:read,knowledge:read,assistant:read,drafts:write,enquiries:write
+```
+
+This connects an agent to your business workspace. It does not grant Bindo platform administration or the separate support-admin connection used to troubleshoot Bindo customer accounts. Workspaces must already exist. Clients requiring client-ID metadata documents without DCR are not supported yet.
+
+### Bearer-token alternative
 
 For a local development instance:
 
