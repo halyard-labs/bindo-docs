@@ -1,13 +1,15 @@
 ---
 title: Billing
-description: Pilot access and the hosted payment flow.
+description: The monthly pilot plan, invoices and cancellation.
 ---
-Paid plans are not enabled by default. During the managed pilot, the Bindo team agrees access and commercial terms with each business before charging.
+The Bindo pilot costs **A$99/month + GST (A$108.90 including Australian GST)** for one business workspace and **250 incoming enquiries per subscription month**. Onboarding is by invitation. There are **no automatic overage charges**; higher usage triggers a review with you before any plan change. Unused allowance does not roll over.
 
-When billing is enabled, **Settings → Billing** shows the configured monthly AUD amount and terms. Checkout and the billing portal are hosted by Stripe. Bindo does not collect card details in the inbox.
+An enquiry is a new inbound email conversation. Follow-ups linked by email reply headers stay in that enquiry; a fresh, unlinked email can create another enquiry from the same customer. Duplicate deliveries do not count again. Identified spam and agreed onboarding test traffic are excluded during pilot usage review. The combined customer history is not the billing unit.
 
-Subscription status comes from verified Stripe events, not the browser's return from Checkout. An open checkout is reused; an existing subscription blocks another checkout. Unknown or old attempts require staff reconciliation.
+In **Settings → Billing**, review and accept the [terms](https://bindo.ai/terms), then continue to Stripe Checkout. Billing is enabled after your workspace is ready; existing pilot access is not charged without checkout. Stripe shows the final applicable tax before payment and hosts card entry. Bindo does not collect full card details.
 
-Invoices, payment methods and cancellation are managed in Stripe's customer portal when configured. Disputes, refunds and fraud warnings flag the account for operator review. The pilot does not automatically suspend inbound support on a payment failure.
+Subscriptions renew monthly until cancelled. **Manage billing** opens Stripe's portal for invoices, payment methods and cancellation at the end of the paid period. Contact [support@bindo.ai](mailto:support@bindo.ai) before renewal if you cannot use the portal. Cancellation stops renewals; it does not automatically delete workspace data.
 
-Pricing, GST treatment and cancellation terms must be agreed before live billing is enabled. No public price is implied by this documentation.
+Subscription status comes from verified Stripe events, not the browser's return from Checkout. Open checkouts are reused and existing subscriptions block duplicate checkout. Disputes, refunds and fraud warnings require operator review. A payment failure does not automatically stop inbound support during the pilot.
+
+See the [privacy policy](https://bindo.ai/privacy) for data handling and closure requests, and [Trust & security](https://bindo.ai/trust) for hosting and access controls.
